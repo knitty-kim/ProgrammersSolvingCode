@@ -1,2 +1,2 @@
 # ProgrammersSolvingCode
-This is a auto push repository for Baekjoon Online Judge, Programmers
+This is an auto push repository for Baekjoon Online Judge, Programmers

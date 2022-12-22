@@ -17,7 +17,7 @@ class Solution {
 			int score = 0;
 			int[] fitting = new int[2];
 			
-			one += pick(survey[i], choices[i]);
+			one = pick(survey[i], choices[i]);
 			score = jumsu(choices[i]);
 			fitting = fit(one, TEST);
 			
@@ -27,7 +27,7 @@ class Solution {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		sb = bfres(TOTAL, TEST);
+		sb = bfres(TOTAL, TEST, sb);
 
 		
 		String answer = sb.toString();
@@ -37,8 +37,8 @@ class Solution {
 		
 	}
 	
-	public static StringBuilder bfres(int[][] total1, String[][] test1) {
-		StringBuilder sb1 = new StringBuilder();
+	public static StringBuilder bfres(int[][] total1, String[][] test1, StringBuilder sb1) {
+		
 		for(int i=0; i<4; i++) {
 			if(total1[i][0]>=total1[i][1]) {
 				sb1.append(test1[i][0]);
@@ -66,8 +66,8 @@ class Solution {
 	}
 	
 	public static int jumsu(int i) {
-		int j = i;
-		switch (j) {
+		int j=0;
+		switch (i) {
 		case 1: j = 3;
 			break;
 		case 2: j = 2;
@@ -88,12 +88,12 @@ class Solution {
 	
 	
 	
-	public static char pick(String survey, int choice ) {
-		char tmp;
+	public static String pick(String survey, int choice ) {
+		String tmp;
 			if(choice<=4) {
-				tmp = survey.charAt(0);
+				tmp = survey.substring(0,1);
 			}else {
-				tmp = survey.charAt(1);
+				tmp = survey.substring(1);
 			}
 		return tmp;
 	}

@@ -2,7 +2,6 @@ import java.util.Map;
 import java.util.HashMap;
 class Solution {
     public boolean solution(String[] phone_book) {
-        
         Map<String, Boolean> map = new HashMap<>();
 		
 		for(String str : phone_book) {

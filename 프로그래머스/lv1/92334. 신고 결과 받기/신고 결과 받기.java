@@ -1,40 +1,40 @@
-import java.util.*;
-
 class Solution {
     public int[] solution(String[] id_list, String[] report, int k) {
         int n = id_list.length;
         int[] answer = new int[n];
-        Map<String, Integer> userIndex = new HashMap<>();
-        Map<String, Set<String>> reporters = new HashMap<>();
-        Map<String, Integer> reportCount = new HashMap<>();
-        
-        for (int i = 0; i < n; i++) {
-            userIndex.put(id_list[i], i);
-        }
-        
+        int[][] reports = new int[n][n];
+
         for (String rep : report) {
             String[] users = rep.split(" ");
-            String reporter = users[0];
-            String reported = users[1];
-            
-            if (!reporters.containsKey(reported)) {
-                reporters.put(reported, new HashSet<>());
-            }
-            if (reporters.get(reported).add(reporter)) {
-                reportCount.put(reported, reportCount.getOrDefault(reported, 0) + 1);
+            int reporter = indexOf(id_list, users[0]);
+            int reported = indexOf(id_list, users[1]);
+
+            if (reporter != -1 && reported != -1 && reports[reporter][reported] == 0) {
+                reports[reporter][reported] = 1;
             }
         }
-        
-        for (String key : reportCount.keySet()) {
-            if (reportCount.get(key) >= k) {
-                Set<String> repUsers = reporters.get(key);
-                for (String reporter : repUsers) {
-                    int idx = userIndex.get(reporter);
-                    answer[idx]++;
+
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                count += reports[j][i];
+            }
+            if (count >= k) {
+                for (int j = 0; j < n; j++) {
+                    answer[j] += reports[j][i];
                 }
             }
         }
-        
+
         return answer;
+    }
+
+    public int indexOf(String[] id_list, String id) {
+        for (int i = 0; i < id_list.length; i++) {
+            if (id_list[i].equals(id)) {
+                return i;
+            }
+        }
+        return -1;
     }
 }

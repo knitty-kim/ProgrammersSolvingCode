@@ -2,21 +2,28 @@ import java.util.*;
 
 class Solution {
     public String solution(String s) {
-       Character[] characters = new Character[s.length()];
-
+    	//List 생성
+        List<Character> characters = new ArrayList<>();
+		
+        //String -> List 변환
         for (int i = 0; i < s.length(); i++) {
-            characters[i] = s.charAt(i);
+            characters.add(s.charAt(i));
         }
-
-        Arrays.sort(characters, Comparator.reverseOrder());
-
+		
+        //Collections.sort로 List 내림차순 정렬
+        Collections.sort(characters, Comparator.reverseOrder());
+		
+        //StringBuilder 생성
         StringBuilder sb = new StringBuilder();
-
+		
+        
+       	//List -> StringBuilder 변환
         for (Character character : characters) {
             sb.append(character);
         }
-
-
+		
+        
+        //StringBuilder -> String 변환 및 반환
         return sb.toString();
     }
 }

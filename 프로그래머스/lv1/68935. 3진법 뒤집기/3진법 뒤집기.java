@@ -1,20 +1,20 @@
 class Solution {
     public int solution(int n) {
-        return convertToDecimal(reverseTernary(n, ""), 0);
-    }
+      StringBuilder ternary = new StringBuilder();
 
-    public static String reverseTernary(int n, String reversed) {
-        if (n == 0) {
-            return reversed;
+        while (n > 0) {
+            ternary.append(n % 3);
+            n /= 3;
         }
-        return reverseTernary(n / 3, n % 3 + reversed);
-    }
 
-    public static int convertToDecimal(String reversedTernary, int index) {
-        if (index == reversedTernary.length()) {
-            return 0;
+        int result = 0;
+        int factor = 1;
+
+        for (int i = ternary.length() - 1; i >= 0; i--) {
+            result += (ternary.charAt(i) - '0') * factor;
+            factor *= 3;
         }
-        int currentDigit = reversedTernary.charAt(index) - '0';
-        return currentDigit * (int) Math.pow(3, index) + convertToDecimal(reversedTernary, index + 1);
+
+        return result;
     }
 }

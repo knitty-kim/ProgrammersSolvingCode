@@ -1,24 +1,13 @@
 class Solution {
     public String solution(String s) {
-         StringBuilder result = new StringBuilder();
-        int index = 0;
+        String answer = "";
+        int cnt = 0;
+        String[] array = s.split("");
 
-        for (int i = 0; i < s.length(); i++) {
-            char ch = s.charAt(i);
-
-            if (ch == ' ') {
-                index = 0;
-                result.append(' ');
-            } else {
-                if (index % 2 == 0) {
-                    result.append(Character.toUpperCase(ch));
-                } else {
-                    result.append(Character.toLowerCase(ch));
-                }
-                index++;
-            }
+        for(String ss : array) {
+            cnt = ss.contains(" ") ? 0 : cnt + 1;
+            answer += cnt%2 == 0 ? ss.toLowerCase() : ss.toUpperCase(); 
         }
-
-        return result.toString();
-    }
+      return answer;
+  }
 }

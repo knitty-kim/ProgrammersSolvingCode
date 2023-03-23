@@ -1,30 +1,24 @@
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 class Solution {
     public String solution(String s) {
-       Pattern pattern = Pattern.compile("\\S+");
-        Matcher matcher = pattern.matcher(s);
-        StringBuffer result = new StringBuffer();
+     StringBuilder sb = new StringBuilder();
+        int index = 0;
 
-        while (matcher.find()) {
-            String word = matcher.group();
-            StringBuilder transformedWord = new StringBuilder();
+        for (int i = 0; i < s.length(); i++) {
 
-            for (int i = 0; i < word.length(); i++) {
-                char ch = word.charAt(i);
-
-                if (i % 2 == 0) {
-                    transformedWord.append(Character.toUpperCase(ch));
-                } else {
-                    transformedWord.append(Character.toLowerCase(ch));
+            char c = s.charAt(i);
+            if (c == ' ') {
+                index = 0;
+                sb.append(' ');
+            } else {
+                if (index % 2 == 0) {
+                    sb.append(Character.toUpperCase(c));
+                }else{
+                    sb.append(Character.toLowerCase(c));
                 }
+                index++;
             }
 
-            matcher.appendReplacement(result, transformedWord.toString());
         }
-
-        matcher.appendTail(result);
-
-        return result.toString();
+        return sb.toString();
     }
 }

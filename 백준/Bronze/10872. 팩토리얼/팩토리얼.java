@@ -5,12 +5,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int n = scanner.nextInt();
         int answer = 1;
-        for (int i = n; i >= 0; i--) {
-            if (i == 0) {
-                answer *= 1;
-            } else {
-                answer *= i;
-            }
+        for (int i = n; i > 0; i--) {
+            answer *= i;
         }
         System.out.println(answer);
     }

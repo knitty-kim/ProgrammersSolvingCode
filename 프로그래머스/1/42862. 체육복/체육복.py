@@ -1,19 +1,21 @@
 def solution(n, lost, reserve):
+    # 체육복 현황 리스트 초기화
+    result = [1] * (n + 2)
+    result[0] = -1
+    result[n+1] = -1
+    
+    # 체육복 현황 갱신
+    for i in lost:
+        result[i] -= 1
+    for j in reserve:
+        result[j] += 1
 
-    lost.sort()
-    reserve.sort()
+    for k in range(1, n+1):
+        if result[k-1] == 0 and result[k] == 2:
+            result[k] = 1
+            result[k-1] = 1
+        elif result[k+1] == 0 and result[k] == 2:
+            result[k] = 1
+            result[k+1] = 1
 
-    # 공통 요소 제거
-    for i in reserve[:]:
-        if i in lost:
-            reserve.remove(i)
-            lost.remove(i)
-
-    # 체육복 빌려주기
-    for i in reserve:
-        if i-1 in lost:
-            lost.remove(i-1)
-        elif i+1 in lost:
-            lost.remove(i+1)
-
-    return n - len(lost)
+    return n - result.count(0)

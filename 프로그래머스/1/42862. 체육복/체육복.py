@@ -1,21 +1,16 @@
 def solution(n, lost, reserve):
-    # 체육복 현황 리스트 초기화
-    result = [1] * (n + 2)
-    result[0] = -1
-    result[n+1] = -1
+    new_reserve = [r for r in reserve if r not in lost]
+    new_lost = [l for l in lost if l not in reserve]
     
-    # 체육복 현황 갱신
-    for i in lost:
-        result[i] -= 1
-    for j in reserve:
-        result[j] += 1
+    new_lost.sort()
+    new_reserve.sort()
+    
+    for r in new_reserve:
+        foward = r - 1
+        backward = r + 1
+        if foward in new_lost:
+            new_lost.remove(foward)
+        elif backward in new_lost:
+            new_lost.remove(backward)
 
-    for k in range(1, n+1):
-        if result[k-1] == 0 and result[k] == 2:
-            result[k] = 1
-            result[k-1] = 1
-        elif result[k+1] == 0 and result[k] == 2:
-            result[k] = 1
-            result[k+1] = 1
-
-    return n - result.count(0)
+    return (n - len(new_lost))

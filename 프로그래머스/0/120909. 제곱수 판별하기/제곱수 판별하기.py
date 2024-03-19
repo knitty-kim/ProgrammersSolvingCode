@@ -1,2 +1,2 @@
 def solution(n):
-    return 2 if (n ** 0.5) % 1 else 1
+    return 1 if int(n ** 0.5) == (n ** 0.5) else 2

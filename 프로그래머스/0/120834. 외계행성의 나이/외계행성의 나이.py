@@ -1,2 +1,2 @@
 def solution(age):
-    return ''.join(list(map(lambda i: chr(i + 97), [int(i) for i in str(age)])))
+    return ''.join(chr(int(i) + 97) for i in str(age))

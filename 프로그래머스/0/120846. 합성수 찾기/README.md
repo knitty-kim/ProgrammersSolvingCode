@@ -1,6 +1,6 @@
 # [level 0] 합성수 찾기 - 120846 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120846?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120846) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 19일 18:20:00
+2024년 03월 19일 18:27:49
 
 ### 문제 설명
 

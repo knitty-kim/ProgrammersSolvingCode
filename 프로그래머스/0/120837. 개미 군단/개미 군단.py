@@ -1,2 +1,7 @@
 def solution(hp):
-    return hp // 5 + ((hp % 5) // 3) + ((hp % 5) % 3)
+    answer = 0
+    n, hp = divmod(hp, 5)
+    answer += n
+    n, hp = divmod(hp, 3)
+    answer += n + hp
+    return answer

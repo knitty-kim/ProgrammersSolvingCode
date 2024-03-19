@@ -1,6 +1,6 @@
 # [level 0] 2차원으로 만들기 - 120842 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120842?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120842) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 19일 21:42:45
+2024년 03월 19일 21:54:39
 
 ### 문제 설명
 

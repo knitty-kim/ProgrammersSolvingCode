@@ -1,8 +1,2 @@
 def solution(s):
-
-    answer = ''
-    for i in range(len(s)):
-        if s.count(s[i]) == 1:
-            answer += s[i]
-
-    return ''.join(sorted(answer))
+    return ''.join(sorted([i for i in set(s) if s.count(i) == 1]))

@@ -1,9 +1,3 @@
 def solution(s):
-    li = s.split()
-    answer = 0
-    for i in range(len(li)):
-        if li[i] != 'Z':
-            answer += int(li[i])
-        else:
-            answer -= int(li[i-1])
-    return answer
+    stri = s.split()
+    return sum([int(stri[i]) if stri[i] != 'Z' else -int(stri[i-1]) for i in range(len(stri))])

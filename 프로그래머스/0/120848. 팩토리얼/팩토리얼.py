@@ -1,7 +1,8 @@
-import math
 def solution(n):
+    answer = 1
     for i in range(1, n+1):
-        if math.factorial(i) > n:
-            return (i - 1)
-        elif math.factorial(i) == n:
+        answer *= i
+        if answer > n:
+            return i - 1
+        elif answer == n:
             return i

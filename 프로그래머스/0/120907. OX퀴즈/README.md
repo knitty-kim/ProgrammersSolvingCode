@@ -1,10 +1,10 @@
 # [level 0] OX퀴즈 - 120907 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120907?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120907) 
 
 ### 성능 요약
 
-메모리: 10.3 MB, 시간: 0.05 ms
+메모리: 10.5 MB, 시간: 0.02 ms
 
 ### 구분
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 22일 10:20:49
+2024년 03월 22일 10:35:05
 
 ### 문제 설명
 

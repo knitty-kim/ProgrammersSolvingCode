@@ -1,6 +1,6 @@
 # [level 0] 최빈값 구하기 - 120812 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120812?language=python3) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/120812) 
 
 ### 성능 요약
 
@@ -16,7 +16,7 @@
 
 ### 제출 일자
 
-2024년 03월 22일 05:30:04
+2024년 03월 22일 05:54:55
 
 ### 문제 설명
 

@@ -14,9 +14,4 @@ def solution(board):
                 map_dic[(row_idx+1, col_idx-1)] = 1
                 map_dic[(row_idx+1, col_idx+1)] = 1
 
-    count = 0
-    for i in map_dic.keys():
-        if map_dic[i] == 0:
-            count += 1
-
-    return count
+    return sum(1 for i in map_dic.keys() if map_dic[i] == 0)

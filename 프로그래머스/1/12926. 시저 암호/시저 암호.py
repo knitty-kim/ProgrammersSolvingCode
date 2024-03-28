@@ -1,10 +1,8 @@
 def solution(s, n):
-    answer = ''
-    for i in s:
-        if i.islower():
-            answer += chr(((ord(i) - ord('a') + n) % 26 + ord('a')))
-        elif i.isupper():
-            answer += chr(((ord(i) - ord('A') + n) % 26 + ord('A')))
-        else:
-            answer += i
-    return answer
+    li = list(s)
+    for i in range(len(li)):
+        if li[i].isupper():
+            li[i] = chr((ord(li[i]) - ord('A') + n) % 26 + ord('A'))
+        elif li[i].islower():
+            li[i] = chr((ord(li[i]) - ord('a') + n) % 26 + ord('a'))
+    return ''.join(li)

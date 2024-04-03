@@ -1,9 +1,6 @@
 def solution(n):
-    check = [False, False] + [True]*(n-1)
-    li = [0] * (n+1)
-    for i in range(2, n+1):
-        if check[i]:
-            li[i] = 1
-        for j in range(2*i, n+1, i):
-            check[j] = False
-    return sum(li)
+    num = set(range(2, n+1))
+    for i in range(2, int(n**0.5)+1):
+        if i in num:
+            num -= set(range(i*i, n+1, i))
+    return len(num)

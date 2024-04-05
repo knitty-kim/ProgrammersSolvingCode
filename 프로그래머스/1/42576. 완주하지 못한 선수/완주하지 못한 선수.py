@@ -4,4 +4,4 @@ def solution(participant, completion):
         dic[i] += 1
     for i in completion:
         dic[i] -= 1
-    return sorted(dic.items(), key=lambda x: -x[1])[0][0]
+    return sorted(dic, key=lambda x: dic[x], reverse=True)[0]

@@ -6,14 +6,16 @@ def solution(X, Y):
     if len(commonSet) == 0:
         return '-1'
 
-    answer = list()
-    for i in commonSet:
+    commonLi = list(commonSet)
+    commonLi.sort(reverse=True)
+
+    answer = ''
+    for i in commonLi:
         minnum = min(X.count(i), Y.count(i))
         for _ in range(minnum):
-            answer.append(i)
+            answer += i
 
-    answer.sort(reverse=True)
     if answer[0] == '0':
         return '0'
     else:
-        return ''.join(answer)
+        return answer

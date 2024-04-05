@@ -1,8 +1,9 @@
+from collections import Counter
 def solution(X, Y):
-    setX = set(X)
-    setY = set(Y)
-    commonSet = setX & setY
+    cntX = Counter(list(X))
+    cntY = Counter(list(Y))
 
+    commonSet = set(X) & set(Y)
     if len(commonSet) == 0:
         return '-1'
 
@@ -11,7 +12,7 @@ def solution(X, Y):
 
     answer = ''
     for i in commonLi:
-        minnum = min(X.count(i), Y.count(i))
+        minnum = min(cntX[i], cntY[i])
         for _ in range(minnum):
             answer += i
 

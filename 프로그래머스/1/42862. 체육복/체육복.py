@@ -1,16 +1,18 @@
 def solution(n, lost, reserve):
-    new_reserve = [r for r in reserve if r not in lost]
-    new_lost = [l for l in lost if l not in reserve]
-    
-    new_lost.sort()
-    new_reserve.sort()
-    
-    for r in new_reserve:
-        foward = r - 1
-        backward = r + 1
-        if foward in new_lost:
-            new_lost.remove(foward)
-        elif backward in new_lost:
-            new_lost.remove(backward)
+    dic = {i: 1 for i in range(1, n+1)}
+    for i in reserve:
+        dic[i] += 1
+    for i in lost:
+        dic[i] -= 1
 
-    return (n - len(new_lost))
+    for key in dic.keys():
+        if dic[key] == 2 and key-1 in dic:
+            if dic[key-1] == 0:
+                dic[key] -= 1
+                dic[key-1] += 1
+        if dic[key] == 2 and key+1 in dic:
+            if dic[key+1] == 0:
+                dic[key] -= 1
+                dic[key+1] += 1
+                
+    return sum(1 for i in dic.values() if i > 0)

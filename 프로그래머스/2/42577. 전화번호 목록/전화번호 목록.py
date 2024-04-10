@@ -1,5 +1,5 @@
 def solution(phone_book):
-    se = set(i for i in phone_book)
+    se = set(phone_book)
     for phone_number in phone_book:
         temp = ""
         for number in phone_number:

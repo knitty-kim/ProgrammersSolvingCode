@@ -1,11 +1,10 @@
 def solution(s):
-    arr = []
-    for i in s:
-        if i == '(':
-            arr.append(i)
-        elif i == ')':
-            if arr:
-                arr.pop()
-            else:
-                return False
-    return len(arr) == 0
+    cm = 0
+    for v in s:
+        if v == '(':
+            cm += 1
+        elif v == ')':
+            cm -= 1
+        if cm < 0:
+            return False
+    return cm == 0

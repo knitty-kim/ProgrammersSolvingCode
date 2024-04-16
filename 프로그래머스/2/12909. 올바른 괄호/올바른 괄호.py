@@ -1,20 +1,11 @@
 def solution(s):
-    answer = True
-
     arr = []
-    for i in range(len(s)):
-        if i == 0:
-            if s[i] == '(':
-                arr.append(s[i])
+    for i in s:
+        if i == '(':
+            arr.append(i)
+        elif i == ')':
+            if arr:
+                arr.pop()
             else:
                 return False
-        else:
-            arr.append(s[i])
-            if arr[-2:] == ['(', ')']:
-                arr.pop()
-                arr.pop()
-
-    if len(arr) != 0:
-        return False
-    else:
-        return True
+    return len(arr) == 0

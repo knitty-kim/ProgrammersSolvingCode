@@ -1,5 +1,5 @@
 def solution(citations):
-    citations.sort()
+    citations.sort(reverse=True)
 
     arr = []
     h = 0
